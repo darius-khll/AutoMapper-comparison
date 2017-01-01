@@ -21,7 +21,7 @@ namespace AutoMapperComparison
             using (AppDbContext db = new AppDbContext())
             {
                 db.Database.Initialize(force: true);
-                db.Database.ExecuteSqlCommand("DBCC DROPCLEANBUFFERS");
+                db.Database.ExecuteSqlCommand("DBCC DROPCLEANBUFFERS"); //Removes all clean buffers from the buffer pool, and columnstore objects from the columnstore object pool
                 Console.WriteLine(db.Addresses.ProjectTo<AddressDto>());
                 Console.WriteLine(db.Addresses);
                 Console.WriteLine(db.Addresses.Select(add => new AddressDto { Id = add.Id, Code = add.Code, Title = add.Title, UserId = add.UserId }));
