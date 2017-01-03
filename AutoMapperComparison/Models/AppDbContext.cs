@@ -11,11 +11,13 @@ namespace AutoMapperComparison.Models
         {
             User user = context.Users.Add(new User { Name = "Test" });
 
+            context.SaveChanges();
+
             List<Address> addresses = new List<Address>();
 
             for (int i = 0; i < 500000; i++)
             {
-                addresses.Add(new Address { Id = i, Code = 1, Title = "Test", User = user });
+                addresses.Add(new Address { Id = i, Code = 1, Title = "Test", UserId = user.Id });
             }
 
             context.BulkInsert(addresses);
