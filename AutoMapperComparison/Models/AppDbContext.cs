@@ -30,9 +30,9 @@ namespace AutoMapperComparison.Models
     {
         static AppDbContext()
         {
-            //Database.SetInitializer(new AppDbContextInitializer());
+            Database.SetInitializer(new AppDbContextInitializer());
 
-            Database.SetInitializer<AppDbContext>(null);
+            //Database.SetInitializer<AppDbContext>(null);
         }
 
         public AppDbContext()
