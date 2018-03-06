@@ -34,7 +34,8 @@ namespace AutoMapperComparison.Models
 
             //Database.SetInitializer<AppDbContext>(null);
         }
-
+        
+        //"Data Source=.;Initial Catalog=AppDbContext;User Id=Sa;Password=password";
         public AppDbContext()
             : base(new SqlConnection(@"Data Source=.;Initial Catalog=AppDbContext;Integrated Security=True"), contextOwnsConnection: true)
         {
